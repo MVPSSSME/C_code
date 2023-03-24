@@ -22,7 +22,7 @@ typedef struct Preson {
 typedef struct Contact {
 	int capactiy;
 	int index;//记录个数
-	Person *date;//个人信息目录
+	Person *date;//Person结构体，用指针date接收结构体的地址
 }Contact;
 
 void Initialize(Contact* pc);//初始化

@@ -6,6 +6,8 @@
 void Initialize(Contact* pc)
 {
 	pc->date=(Person*)malloc(sizeof(Person) * ORI);
+	//动态开辟，用指针pc->date接收
+	//pc->date指针是指向个人信息的结构体指针
 	if (pc == NULL)
 	{
 		printf("通讯录初始化失败：%s", strerror(errno));
@@ -149,19 +151,21 @@ void MODIFY_address_book(Contact* pc)
 		printf("通讯录无信息\n");
 		return;
 	}
-	int i = flag;
-	printf("请输入名字：\n");
-	scanf("%s", pc->date[i].name);
-	printf("请输入性别：\n");
-	scanf("%s", pc->date[i].sex);
-	printf("请输入号码：\n");
-	scanf("%s", pc->date[i].number);
-	printf("请输入地址：\n");
-	scanf("%s", pc->date[i].home);
-	printf("请输入年龄：\n");
-	scanf("%d", &(pc->date[i].age));
-	pc->index++;
-	printf("改正成功\n");
+	else
+	{
+		printf("请输入名字：\n");
+		scanf("%s", pc->date[flag].name);
+		printf("请输入性别：\n");
+		scanf("%s", pc->date[flag].sex);
+		printf("请输入号码：\n");
+		scanf("%s", pc->date[flag].number);
+		printf("请输入地址：\n");
+		scanf("%s", pc->date[flag].home);
+		printf("请输入年龄：\n");
+		scanf("%d", &(pc->date[flag].age));
+		
+		printf("改正成功\n");
+	}
 }
 
 int cmp(const void* p1, const void* p2)
